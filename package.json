@@ -35,7 +35,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "postinstall": "npm run start webpack",
+    "postinstall": "npm run webpack",
     "webpack": "./node_modules/webpack/bin/webpack.js",
     "start:dev": "npm run webpack -- --watch --mode=development & DATABASE_URL=postgres://localhost/acme-products-react-redux nodemon server.js --ignore src/ --ignore dist"
   },
