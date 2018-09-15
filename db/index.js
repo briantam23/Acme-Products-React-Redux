@@ -15,8 +15,8 @@ const syncAndSeed = () => {
     conn.sync({ force: true })
         .then(() => { Promise.all([
             Product.create({ name: 'Laptop', rating: 4 }),
-            Product.create({ name: 'headphones', rating: 3 }),
-            Product.create({ name: 'backpack', rating: 4 })
+            Product.create({ name: 'Headphones', rating: 3 }),
+            Product.create({ name: 'Backpack', rating: 4 })
         ])})
 }
 
