@@ -1,17 +1,21 @@
 import React from 'react';
+import { deleteProduct } from './store';
 import { connect } from 'react-redux';
-import { createProduct } from './store';
 
-const Product = ({ createProduct }) => {
+const Product = ({ product, deleteProduct }) => {
+    console.log(product)
     return (
-        <div>
-            <button onClick={ ()=>createProduct({ name: 'foo', rating: 4 })}>Create Product</button>
-        </div>
+    <ul>
+        <li>
+            { product.name }
+            <button onClick={ ()=>deleteProduct(product) }>X</button>
+        </li>
+    </ul>
     )
 }
 
 const mapDispatchToProps = dispatch => ({
-    createProduct: product => dispatch(createProduct(product))
+    deleteProduct: product => dispatch(deleteProduct(product))
 })
 
 export default connect(null, mapDispatchToProps)(Product);

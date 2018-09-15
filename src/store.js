@@ -27,7 +27,7 @@ const _createProduct = product => ({
 })
 
 export const createProduct = product => {
-    dispatch => {
+    return dispatch => {
         return axios.post('/api/products', product)
             .then(res => res.data)
             .then(product => dispatch(_createProduct(product)))
