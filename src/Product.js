@@ -3,7 +3,6 @@ import { deleteProduct } from './store';
 import { connect } from 'react-redux';
 
 const Product = ({ product, deleteProduct }) => {
-    console.log(product)
     return (
     <ul>
         <li>
