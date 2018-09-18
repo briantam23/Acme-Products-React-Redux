@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import axios from 'axios';
@@ -46,21 +46,23 @@ export const deleteProduct = product => (
     }
 )
 
-const initialState = { products: [] }
-
-const reducer = (state= initialState, action) => {
+const productReducer = (state = [], action) => {
     switch (action.type) {
         case LOAD_PRODUCTS:
-            return { ...state, products: action.products };
+            return action.products;
         case CREATE_PRODUCT:
-            return { ...state, products: [...state.products, action.product] };
+            return [...state, action.product];
         case DELETE_PRODUCT:
-            return { ...state, products: state.products.filter(product => product.id !== action.product.id) }
+            return state.filter(product => product.id !== action.product.id);
         default:
             return state;
     }
 }
 
-const store = createStore(reducer, applyMiddleware(logger, thunk));
+const reducer = combineReducers({
+    products: productReducer
+})
+
+const store = createStore(reducer, applyMiddleware(thunk, logger));
 
 export default store;
