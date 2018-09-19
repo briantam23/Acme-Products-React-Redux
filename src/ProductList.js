@@ -13,11 +13,17 @@ const ProductList = ({ products, deleteProduct, createProduct }) => {
                 products.map(product => product.rating > 2 
                 ? (<li key={ product.id } className='green'> 
                     { product.name } { product.rating }
-                    <button onClick={ ()=>deleteProduct(product) }>X</button>
+                        { products[1]
+                            ? <button onClick={ ()=>deleteProduct(product) }>X</button>
+                            : null
+                        }
                 </li>)
                 : (<li key={ product.id }>
                     { product.name } { product.rating }
-                    <button onClick={ ()=>deleteProduct(product) }>X</button>
+                        { products[1]
+                            ? <button onClick={ ()=>deleteProduct(product) }>X</button>
+                            : null
+                        }
                 </li>))
             }
             </ul>

@@ -11,7 +11,7 @@ class Nav extends Component {
     }
     render () {
         const { products } = this.props;
-        //products.sort((a, b) => b.rating - a.rating)
+        products.sort((a, b) => b.rating - a.rating)
         return (
             <Router>
             {   
