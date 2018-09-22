@@ -37,7 +37,7 @@
   "scripts": {
     "postinstall": "npm run webpack",
     "webpack": "./node_modules/webpack/bin/webpack.js",
-    "start:dev": "npm run webpack -- --watch --mode=development & DATABASE_URL=postgres://localhost/acme-products-react-redux nodemon server.js --ignore src/ --ignore dist"
+    "start:dev": "npm run webpack -- --watch --mode=development & DATABASE_URL=postgres://localhost/acme-products-react-redux nodemon server/app.js --ignore src/ --ignore dist"
   },
   "keywords": [],
   "author": "",

@@ -49,9 +49,9 @@ export const deleteProduct = product => (
 const productReducer = (state = [], action) => {
     switch (action.type) {
         case LOAD_PRODUCTS:
-            return action.products;
+            return action.products.sort((a, b) => b.rating - a.rating);
         case CREATE_PRODUCT:
-            return [...state, action.product];
+            return [...state, action.product].sort((a, b) => b.rating - a.rating);
         case DELETE_PRODUCT:
             return state.filter(product => product.id !== action.product.id);
         default:
