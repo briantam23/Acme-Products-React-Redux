@@ -2,9 +2,15 @@ const db = require('../db');
 const express = require('express');
 const app = express();
 const path = require('path');
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
-app.listen(PORT, () => console.log(`listening on PORT ${PORT}`));
+app.listen(PORT, () => console.log(`
+
+        Listening on PORT ${PORT}!
+        http://localhost:${PORT}
+        
+    `)
+);
 
 app.use('/public', express.static(path.join(__dirname, '../dist')));
 
